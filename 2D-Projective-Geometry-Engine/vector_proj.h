@@ -12,7 +12,7 @@ struct vector_2d
 };
 
 /**
- * \brief Defines a 3 dimensional vector projecting onto a 2D plane.
+ * \brief Defines a 3 dimensional vector projecting onto a 2D plane at w = 1.
  */
 class vector_proj
 {
