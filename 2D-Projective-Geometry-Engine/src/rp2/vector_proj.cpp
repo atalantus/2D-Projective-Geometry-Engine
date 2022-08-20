@@ -1,11 +1,10 @@
 #include "vector_proj.h"
 
-#include "../constants.h"
-
+#include "../util.h"
 
 vector_2d vector_proj::normalize_2d() const
 {
-    if (w_ < kDblCmpEps && w_ > -kDblCmpEps)
+    if (dbl_cmp_eq(w_, 0))
         return {x_, y_, true};
 
     return {x_ / w_, y_ / w_, false};

@@ -1,5 +1,6 @@
 ﻿#pragma once
-#include "../constants.h"
+
+#include "../util.h"
 
 namespace math
 {
@@ -46,8 +47,8 @@ namespace math
         Complex operator /(const Complex& o) const
         {
             return {
-                    (real * o.real + imaginary * o.imaginary) / (imaginary * imaginary + o.imaginary * o.imaginary),
-                    (imaginary * o.real - real * o.imaginary) / (imaginary * imaginary + o.imaginary * o.imaginary)
+                    (real * o.real + imaginary * o.imaginary) / (o.real * o.real + o.imaginary * o.imaginary),
+                    (imaginary * o.real - real * o.imaginary) / (o.real * o.real + o.imaginary * o.imaginary)
             };
         }
 
@@ -69,10 +70,9 @@ namespace math
          */
         [[nodiscard]] bool is_real() const
         {
-            return imaginary < kDblCmpEps && imaginary > -kDblCmpEps;
+            return dbl_cmp_eq(imaginary, 0);
         }
 
-    private:
         //-------------------------------------------------------------
         //                          FIELD
         //-------------------------------------------------------------

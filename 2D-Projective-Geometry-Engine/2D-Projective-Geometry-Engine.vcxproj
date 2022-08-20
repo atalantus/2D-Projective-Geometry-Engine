@@ -140,7 +140,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\constants.h" />
     <ClInclude Include="src\math\complex.h" />
     <ClInclude Include="src\math\constants.h" />
     <ClInclude Include="src\math\exceptions.h" />
@@ -150,8 +149,10 @@
     <ClInclude Include="src\math\util.h" />
     <ClInclude Include="src\math\vector.h" />
     <ClInclude Include="src\rp2\vector_proj.h" />
+    <ClInclude Include="src\util.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\math\test.cpp" />
     <ClCompile Include="src\rp2\matrix_trans.cpp" />
     <ClCompile Include="src\rp2\vector_proj.cpp" />
   </ItemGroup>

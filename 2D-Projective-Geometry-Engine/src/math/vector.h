@@ -44,6 +44,62 @@ namespace math
             return value[i];
         }
 
+        Vector<T> operator *(const double s) const
+        {
+            Vector<T> v(dimension);
+
+            for (uint32_t i = 0; i < dimension; ++i)
+            {
+                v[i] = value[i] * s;
+            }
+
+            return v;
+        }
+
+        Vector<T> operator /(const double s) const
+        {
+            Vector<T> v(dimension);
+
+            for (uint32_t i = 0; i < dimension; ++i)
+            {
+                v[i] = value[i] / s;
+            }
+
+            return v;
+        }
+
+        Vector<T> operator +(const Vector<T> o) const
+        {
+            if (dimension != o.dimension)
+                throw DimensionMismatch(std::format("Can not add vectors with different dimension {0} and {1}.",
+                    dimension, o.dimension));
+
+            Vector<T> v(dimension);
+
+            for (uint32_t i = 0; i < dimension; ++i)
+            {
+                v[i] = value[i] + o[i];
+            }
+
+            return v;
+        }
+
+        Vector<T> operator -(const Vector<T> o) const
+        {
+            if (dimension != o.dimension)
+                throw DimensionMismatch(std::format("Can not subtract vectors with different dimension {0} and {1}.",
+                    dimension, o.dimension));
+
+            Vector<T> v(dimension);
+
+            for (uint32_t i = 0; i < dimension; ++i)
+            {
+                v[i] = value[i] - o[i];
+            }
+
+            return v;
+        }
+
         //-------------------------------------------------------------
         //                          METHOD
         //-------------------------------------------------------------
@@ -57,16 +113,17 @@ namespace math
          * \param v The other vector
          * \return The dot product
          */
-        [[nodiscard]] T dot_product(const Vector& v) const
+        [[nodiscard]] T dot_product(const Vector& o) const
         {
-            if (dimension != v.dimension)
-                throw DimensionMismatch(std::format("Can not compute dot product of vectors with different dimension {0} and {1}."));
+            if (dimension != o.dimension)
+                throw DimensionMismatch(std::format("Can not compute dot product of vectors with different dimension {0} and {1}.",
+                    dimension, o.dimension));
 
             T x = 0;
 
             for (uint32_t i = 0; i < dimension; ++i)
             {
-                x += value[i] * v[i];
+                x += value[i] * o[i];
             }
 
             return x;

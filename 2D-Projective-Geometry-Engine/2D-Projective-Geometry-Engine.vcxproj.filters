@@ -24,9 +24,6 @@
     <ClInclude Include="src\math\util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\math\vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -45,12 +42,18 @@
     <ClInclude Include="src\rp2\constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\rp2\vector_proj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\rp2\matrix_trans.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
